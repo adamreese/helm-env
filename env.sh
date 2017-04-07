@@ -12,8 +12,8 @@ Usage:
   helm env [OPTIONS]
 
 Options:
-  --vars-only      only print environment variables
-  --quite          don't print headers
+      --vars-only      only print environment variables
+  -q, --quiet          don't print headers
 
 EOF
 
@@ -37,7 +37,7 @@ rule() {
 # Print step header text in a consistent way
 
 header() {
-  if [[ "${QUITE}" ]]; then
+  if [[ "${QUIET}" ]]; then
     return
   fi
 
@@ -79,12 +79,12 @@ EOF
 # parse command line options
 
 ENVARS_ONLY=
-QUITE=
+QUIET=
 
 while [[ $# -ne 0 ]]; do
   case "$1" in
     --vars-only) ENVARS_ONLY=1  ;;
-    -q)          QUITE=1  ;;
+    --quiet|-q)        QUIET=1  ;;
     -*)          usage "Unrecognized command line argument $1" ;;
     *)           break;
   esac
