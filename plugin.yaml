@@ -5,3 +5,5 @@ usage: "print out the helm environment"
 description: |-
   Print out the helm environment.
 command: "$HELM_PLUGIN_DIR/env.sh"
+hooks:
+  install: "$HELM_PLUGIN_DIR/env.sh --help"
