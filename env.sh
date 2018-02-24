@@ -28,7 +28,7 @@ EOF
 rule() {
   local cols="${COLUMNS:-$(tput cols)}"
   local char=$'\u2500'
-  printf '%*s\n' "${cols}" '' | sed -n -r "s/ /${char}/gp"
+  printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 }
 
 # -----------------------------------------------------------------------------
@@ -72,6 +72,7 @@ print_kubectl_config() {
 cat << EOF
 current-context: ${current_context}
 server:          ${server}
+
 EOF
 }
 
