@@ -15,6 +15,6 @@ Options:
 ## Install
 
 ```
-$ helm plugin install https://github.com/adamreese/helm-env
+$ helm plugin install https://github.com/adamreese/helm-env --version master
 Installed plugin: env
 ```
